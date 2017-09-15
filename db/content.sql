@@ -1,6 +1,12 @@
+insert into t_author values
+	('', 'Nicolas', 'Boileau', NULL, '' ),
+	('', 'Linus', 'B', 'Torvalds', '' ),
+	('', '', 'Virgile', NULL, '' )
+	;
 insert into t_quote values
-	(1, 'Framasoft', 'Liberte, Egalite, Fraternite');
-insert into t_quote values
-	(2, 'Horace', 'Celui qui a confiance en soi conduit les autres');
-insert into t_quote values
-	(3, 'Gustave Flaubert', 'Pour avoir du talent il faut [etre convaincu qu\'on en possede');
+	('', 'Ce qui se conçoit bien s’énonce clairement et les mots pour le dire
+		arrivent aisément', 1),
+	('', 'Keep quiet, show me the code', 2),
+	('', 'Je crains les Grecs. Même lorsqu’ils offrent des présents.', 3)
+
+	;
