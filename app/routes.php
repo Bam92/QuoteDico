@@ -1,7 +1,7 @@
 <?php
 
 // Home page
-$app->get('/', function () {
+/*$app->get('/', function () {
     require '../src/model.php';
     $quotes = getQuotes();
 
@@ -10,3 +10,10 @@ $app->get('/', function () {
     $view = ob_get_clean(); // assign HTML output to $view
     return $view;
 });
+*/
+
+// Home page
+$app->get('/', function () use ($app) {
+    $quotes = $app['dao.quote']->findQuotes();
+    return $app['twig']->render('index.html.twig', array('quotes' => $quotes));
+})->bind('home');
