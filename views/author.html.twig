@@ -1,0 +1,25 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}QuoteDico - Home{% endblock %}
+
+{% block content %}
+
+
+
+<article>
+
+
+<h2>Liste des articles de
+{{ author.fName }} {{ author.mName }} {{ author.lName }}
+</h2>
+{% for quote in quotes %}
+    <p><blockquote>
+
+    {{ quote.summary }}<br>
+
+      </blockquote>
+    </p>
+{% endfor %}
+</article>
+
+{% endblock %}

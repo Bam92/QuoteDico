@@ -8,8 +8,11 @@
 <article>
     <p><blockquote>{{ quote.summary }}<br>
         <small>
+          <a class="" href="/author/{{ quote.author.id }}">
           {{ quote.author.fName }} {{ quote.author.mName }} {{ quote.author.lName }}
+          </a>
         </small>
+        <p>Ajoute le {{ quote.date }} avec pour theme {{ quote.theme }}
       </blockquote>
     </p>
 </article>

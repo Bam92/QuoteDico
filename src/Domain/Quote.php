@@ -28,6 +28,20 @@ class Quote
   */
   private $author;
 
+  /**
+  * Quote submitted date
+  *
+  * @var datetime
+  */
+  private $date;
+
+  /**
+  * Quote theme
+  *
+  * @var string
+  */
+  private $theme;
+
   public function id ()
 		{
 			return $this->id;
@@ -62,4 +76,25 @@ class Quote
 		{
 			$this->author = $author;
 		}
+
+    public function date ()
+		{
+			return $this->date;
+		}
+
+		public function setDate ($date)
+		{
+			$this->date = $date;
+		}
+
+    public function theme ()
+		{
+			return $this->theme;
+		}
+
+		public function setTheme ($theme)
+		{
+			$this->theme = $theme;
+		}
+
 }

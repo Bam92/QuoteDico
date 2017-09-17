@@ -21,7 +21,7 @@ class QuoteDAO extends DAO
      * @return array A list of all quotes.
      */
 
-    public function findQuotes() {
+    public function findAllQuotes() {
 
         $sql = "select * from t_quote order by q_description asc";
         $result = $this->getDb()->fetchAll($sql);
@@ -37,16 +37,25 @@ class QuoteDAO extends DAO
     }
 
     // Find one quote
-    public function find($id) {
+    public function findByAuthor($author_id) {
+      // get author id
+      $author = $this->authorDAO->find($author_id);
 
-        $sql = "select * from t_quote where q_id=?";
-        $row = $this->getDb()->fetchAssoc($sql, array($id));
+        // $author_id is not selected by the SQL query
+        // The $author won't be retrieved during domain objet construction
+        $sql = "select * from t_quote where a_id=? order by time(q_date) asc";
+        $result = $this->getDb()->fetchAll($sql, array($author_id));
 
-        if ($row)
-
-            return $this->buildDomainObject($row);
-        else
-            throw new \Exception("No quote matching id " . $id);
+        // Convert query result to an array of domain objects
+        $auth_quotes = array();
+        foreach ($result as $row) {
+            $quoteId = $row['q_id'];
+            $quote = $this->buildDomainObject($row);
+            // The associated article is defined for the constructed comment
+            $quote->setAuthor($author);
+            $auth_quotes[$quoteId] = $quote;
+        }
+        return $auth_quotes;
 
     }
 
@@ -61,7 +70,8 @@ class QuoteDAO extends DAO
         $quote = new Quote();
         $quote->setId($row['q_id']);
         $quote->setSummary($row['q_description']);
-        //$quote->setAuthor(($row['a_id']));
+        $quote->setDate($row['q_date']);
+        $quote->setTheme($row['q_theme']);
 
       if (array_key_exists('a_id', $row)) {
           // Find and set the associated author

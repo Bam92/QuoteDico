@@ -8,11 +8,32 @@ use QuoteDico\Domain\Author;
 class AuthorDAO extends DAO
 {
   /**
-     * Return a list of all quotes, sorted by quotes' descriptions (asc).
+     * Return a list of authors.
      *
-     * @return array A list of all quotes.
+     * @return array A list of all authors.
      */
+     public function findAllAuthors() {
 
+         $sql = "select * from t_author order by a_lName asc";
+         $result = $this->getDb()->fetchAll($sql);
+
+         // Convert query result to an array of domain objects
+         $authors = array();
+
+         foreach ($result as $row) {
+             $authorId = $row['a_id'];
+             $authors[$authorId] = $this->buildDomainObject($row);
+         }
+         return $authors;
+     }
+
+     /**
+      * Returns an author matching the supplied id.
+      *
+      * @param integer $id The author id.
+      *
+      * @return \Author\Domain\Author|throws an exception if no matching author is found
+      */
     public function find ($auth_id) {
 
         $sql = "select * from t_author where a_id = ?";

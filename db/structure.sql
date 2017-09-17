@@ -13,6 +13,8 @@ a_link varchar(50)
 create table t_quote ( -- q stands for quote
 q_id integer not null primary key auto_increment,
 q_description varchar(2000) not null,
+q_theme varchar(50) default 'général',
+q_date datetime,
 a_id integer not null,
 constraint fk_q_a foreign key(a_id) references t_author(a_id)
 
