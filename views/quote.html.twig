@@ -2,20 +2,11 @@
 
 {% block title %}QuoteDico - Home{% endblock %}
 
-{% block quote %}
-   <blockquote>  {{ dayQ.summary }} <br>
-   <small>
-     <a class="" href="/author/{{ dayQ.author.id }}">
-     {{ dayQ.author.fName }} {{ dayQ.author.mName }} {{ dayQ.author.lName }}
-     </a>
-   </small>
-   </blockquote>
-{% endblock %}
-
 {% block content %}
 
+{% for quote in quotes %}
+
 <article>
-   {% for quote in quotes %}
     <p>
     <blockquote>{{ quote.summary }}<br>
         <small>
@@ -27,7 +18,7 @@
         pour thème {{ quote.theme }}
       </blockquote>
     </p>
-    {% endfor %}
 </article>
 
+{% endfor %}
 {% endblock %}

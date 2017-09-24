@@ -1,22 +1,38 @@
 <?php
 
-// Home page
-/*$app->get('/', function () {
-    require '../src/model.php';
-    $quotes = getQuotes();
+// test page
+$app->get('/test', function () use($app){
+  $quotes = $app['dao.quote']->findAllQuotes();
+  $dayQ = $app['dao.quote']->test();
+  $ID = $app['dao.quote']->find($dayQ);
+  //  require '../src/model.php';
+  //  $quotes = getQuotes();
 
     ob_start();             // start buffering HTML output
     require '../views/view.php';
     $view = ob_get_clean(); // assign HTML output to $view
     return $view;
 });
-*/
+
 
 // Home page
 $app->get('/', function () use ($app) {
-    $quotes = $app['dao.quote']->findAllQuotes();
-    return $app['twig']->render('index.html.twig', array('quotes' => $quotes));
+    $quotes = $app['dao.quote']->get5Quotes();
+    $dayQ = $app['dao.quote']->test();
+    $ID = $app['dao.quote']->find($dayQ);
+
+    return $app['twig']->render('index.html.twig', array(
+      'quotes' => $quotes,
+      'dayQ' => $ID
+    ));
 })->bind('home');
+
+$app->get('/quotes', function () use ($app) {
+    $quotes = $app['dao.quote']->findAllQuotes();
+    return $app['twig']->render('quote.html.twig', array(
+      'quotes' => $quotes
+    ));
+})->bind('quotes');
 
 // Get list of quotes of a given author
 $app->get('/author/{id}', function ($id) use ($app) {
@@ -26,5 +42,11 @@ $app->get('/author/{id}', function ($id) use ($app) {
       'author' => $author,
       'quotes' => $quotes
     ));
-    //return "Bienvenue " .$id;
+
 });
+
+// test view
+/*$app->get('/test', function() use($app) {
+  $quotes = $app['dao.quote']->findAllQuotes();
+  return $app->render('view.php', array('quotes' => $quotes));
+});*/
