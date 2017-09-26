@@ -18,7 +18,16 @@ $app->get('/test', function () use($app){
 // Home page
 $app->get('/', function () use ($app) {
     $quotes = $app['dao.quote']->get5Quotes();
-    $dayQ = $app['dao.quote']->test();
+    $dayQ = $app['dao.quote']->getId();
+    $checkID = !$app['dao.quote']->exists($dayQ);
+
+    while ($checkID) {
+      //$ID = $app['dao.quote']->find($dayQ);
+      $app['dao.quote']->getId();
+    }
+  /*  else {
+      $dayQ = $app['dao.quote']->test();
+    }*/
     $ID = $app['dao.quote']->find($dayQ);
 
     return $app['twig']->render('index.html.twig', array(

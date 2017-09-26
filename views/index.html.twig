@@ -1,9 +1,11 @@
 {% extends "layout.html.twig" %}
 
-{% block title %}QuoteDico - Home{% endblock %}
+{% block title %} QuoteDico - Home {% endblock %}
 
-{% block quote %}
-   <blockquote>  {{ dayQ.summary }} <br>
+{% block hea %}
+
+  <h2 class="site-title">Citation du jour</h2>
+   <blockquote>  {{ dayQ.summary }}
    <small>
      <a class="" href="/author/{{ dayQ.author.id }}">
      {{ dayQ.author.fName }} {{ dayQ.author.mName }} {{ dayQ.author.lName }}
@@ -14,7 +16,6 @@
 
 {% block content %}
 
-<article>
    {% for quote in quotes %}
     <p>
     <blockquote>{{ quote.summary }}<br>
@@ -23,11 +24,11 @@
           {{ quote.author.fName }} {{ quote.author.mName }} {{ quote.author.lName }}
           </a>
         </small>
-        <p>Ajouté le {{ quote.date | date('d/m/Y') }} avec
-        pour thème {{ quote.theme }}
+        <p>Ajouté le {{ quote.date | date('d/m/Y') }} dans la categorie
+         {#{ quote.theme }#}
+         </p>
       </blockquote>
     </p>
     {% endfor %}
-</article>
 
 {% endblock %}

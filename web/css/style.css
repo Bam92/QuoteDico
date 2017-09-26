@@ -1,0 +1,55 @@
+small {
+	/*float: right;*/
+}
+
+footer {
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+    text-align: center;
+}
+
+.navbar, nav {
+	margin-bottom: 800px;
+	/*border: 2px solid red;*/
+}
+
+/* --- NAVIGATION --- */
+.navbar {
+	box-shadow: 0 2px 4px rgba(0,0,0,.2);
+	background: #232634;
+	color: #bbbfce;
+}
+.navbar-header a {
+	color: #965fc0;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+	color: #fff;
+}
+
+.navbar-fixed-top.scrolled {
+  background-color: #fff !important;
+  transition: background-color 200ms linear;
+	color:black;
+}
+
+.navbar-fixed-top.scrolled .navbar-nav > li > a{
+	color:black;
+}
+
+/* Right panel style */
+.box-right-panel {
+	box-shadow: 0 0 .3rem #999;
+	border-radius: .2rem;
+	padding: 1.2rem;
+	margin: 1rem 0 1.6rem 0;
+	/*color: red;*/
+}
+
+.site-title {
+	font-variant: small-caps;
+	letter-spacing: .01em;
+	display: block;
+	border-bottom: solid 0.2rem #bdd8fb;
+	margin: -0.4rem 0 0.5rem !important;
+}

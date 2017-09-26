@@ -1,6 +1,11 @@
 {% extends "layout.html.twig" %}
 
-{% block title %}QuoteDico - Home{% endblock %}
+{% block title %} QuoteDico - Home {% endblock %}
+
+{% block hea %}
+  <p>QuoteDico
+   <p>receuil de citations libre que chacun peut ameliorer</p>
+{% endblock %}
 
 {% block content %}
 
@@ -8,14 +13,15 @@
 
 <article>
     <p>
-    <blockquote>{{ quote.summary }}<br>
+    <blockquote>{{ quote.summary }}  
         <small>
           <a class="" href="/author/{{ quote.author.id }}">
-          {{ quote.author.fName }} {{ quote.author.mName }} {{ quote.author.lName }}
+          {{ quote.author.fName }} {{ quote.author.mName }}
+          {{ quote.author.lName }}
           </a>
         </small>
-        <p>Ajouté le {{ quote.date | date('d/m/Y') }} avec
-        pour thème {{ quote.theme }}
+        <p>Ajouté le {{ quote.date | date('d/m/Y') }} dans la categorie
+         {{ quote.theme }}
       </blockquote>
     </p>
 </article>
