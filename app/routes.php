@@ -43,6 +43,16 @@ $app->get('/quotes', function () use ($app) {
     ));
 })->bind('quotes');
 
+// details on a quote
+$app->get('/quote/{id}', function () use ($app) {
+
+})->bind('quote');
+
+// Get list of quotes of a given category
+$app->get('/quote/category/{id}', function () use ($app) {
+
+})->bind('category');
+
 // Get list of quotes of a given author
 $app->get('/author/{id}', function ($id) use ($app) {
     $author = $app['dao.author']->find($id);
@@ -53,6 +63,11 @@ $app->get('/author/{id}', function ($id) use ($app) {
     ));
 
 });
+
+// List of contributors
+$app->get('/contributors', function () use ($app) {
+
+})->bind('contributors');
 
 // test view
 /*$app->get('/test', function() use($app) {
