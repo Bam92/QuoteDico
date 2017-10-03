@@ -17,7 +17,7 @@ $app->get('/test', function () use($app){
 
 // Home page
 $app->get('/', function () use ($app) {
-    $quotes = $app['dao.quote']->get5Quotes();
+    $quotes = $app['dao.quote']->findAllQuotes();
     $dayQ = $app['dao.quote']->getId();
     $checkID = !$app['dao.quote']->exists($dayQ);
 
