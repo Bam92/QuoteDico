@@ -17,6 +17,14 @@ class QuoteDAO extends DAO
   }
 
   /**
+  * Return amount of quotes
+  * @return integer total of quotes in the db
+  */
+  public function count() {
+    return $this->getDb()->query('SELECT COUNT(*) FROM t_quote')->fetchColumn();
+  }
+
+  /**
      * Return a list of all quotes
      * @return array A list of all quotes.
      */

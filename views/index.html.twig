@@ -16,8 +16,9 @@
     </div>
 
     <h2 id="numbers" class="col-md-12 text-center">
-    # <a href="/quotes" title="Liste des citations">citations</a>,
-    # <a href="">auteurs</a> et ca continue ...
+    {{ quote_total }} <a href="/quotes" title="Liste des citations">citations</a>,
+    {{ author_total }} <a href="">auteurs</a>,
+    # <a href="/contributors">contibuteurs</a> et ca continue ...
     </h2>
   </div>
 </section>
@@ -34,9 +35,9 @@
           {{ quote.author.fName }} {{ quote.author.mName }} {{ quote.author.lName }}
           </a>
         </small>
-        <p>Ajouté le {{ quote.date | date('d/m/Y') }} dans la categorie
+        <!--p>Ajouté le {{ quote.date | date('d/m/Y') }} dans la categorie
          {#{ quote.theme }#}
-         </p>
+         </p-->
       </blockquote>
     </p>
     {% endfor %}

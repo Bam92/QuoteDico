@@ -8,6 +8,14 @@ use QuoteDico\Domain\Author;
 class AuthorDAO extends DAO
 {
   /**
+  * Return amount of authors
+  * @return integer total of authors in the db
+  */
+  public function count() {
+    return $this->getDb()->query('SELECT COUNT(*) FROM t_author')->fetchColumn();
+  }
+
+  /**
      * Return a list of authors.
      *
      * @return array A list of all authors.

@@ -17,22 +17,26 @@ $app->get('/test', function () use($app){
 
 // Home page
 $app->get('/', function () use ($app) {
-    $quotes = $app['dao.quote']->findAllQuotes();
-    $dayQ = $app['dao.quote']->getId();
+    $quotes = $app['dao.quote']->get5quotes();
+    $quote_total = $app['dao.quote']->count();
+    $author_total = $app['dao.author']->count();
+
+    /* We no longer need this, may be after?
     $checkID = !$app['dao.quote']->exists($dayQ);
 
     while ($checkID) {
       //$ID = $app['dao.quote']->find($dayQ);
       $app['dao.quote']->getId();
     }
-  /*  else {
+  else {
       $dayQ = $app['dao.quote']->test();
-    }*/
-    $ID = $app['dao.quote']->find($dayQ);
+    }
+    $ID = $app['dao.quote']->find($dayQ);*/
 
     return $app['twig']->render('index.html.twig', array(
-      'quotes' => $quotes,
-      'dayQ' => $ID
+      'quotes'      => $quotes,
+      'quote_total' => $quote_total,
+      'author_total'    => $author_total
     ));
 })->bind('home');
 
