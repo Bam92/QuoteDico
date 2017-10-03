@@ -2,16 +2,26 @@
 
 {% block title %} QuoteDico - Home {% endblock %}
 
-{% block hea %}
+{% block jumbotron %}
+<section class="jumbotron">
+  <div class="container">
 
-  <h2 class="site-title">Citation du jour</h2>
-   <blockquote>  {{ dayQ.summary }}
-   <small>
-     <a class="" href="/author/{{ dayQ.author.id }}">
-     {{ dayQ.author.fName }} {{ dayQ.author.mName }} {{ dayQ.author.lName }}
-     </a>
-   </small>
-   </blockquote>
+    <div class="col-md-8">
+      <p>Construisons ensemble le recueil de nos citations favorites</p>
+      <p>libre et collaboratif</p>
+    </div>
+
+    <div class="col-md-4">
+      <h3>Formulaire ici</h3>
+    </div>
+
+    <h2 id="numbers" class="col-md-12 text-center">
+    # <a href="/quotes" title="Liste des citations">citations</a>,
+    # <a href="">auteurs</a> et ca continue ...
+    </h2>
+  </div>
+</section>
+
 {% endblock %}
 
 {% block content %}

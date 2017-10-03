@@ -4,7 +4,7 @@
 
 {% block hea %}
   <p>QuoteDico
-   <p>receuil de citations libre que chacun peut ameliorer</p>
+   <p></p>
 {% endblock %}
 
 {% block content %}
@@ -13,7 +13,7 @@
 
 <article>
     <p>
-    <blockquote>{{ quote.summary }}  
+    <blockquote>{{ quote.summary }}<br>
         <small>
           <a class="" href="/author/{{ quote.author.id }}">
           {{ quote.author.fName }} {{ quote.author.mName }}
