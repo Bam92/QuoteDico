@@ -5,8 +5,6 @@ $app->get('/test', function () use($app){
   $quotes = $app['dao.quote']->findAllQuotes();
   $dayQ = $app['dao.quote']->test();
   $ID = $app['dao.quote']->find($dayQ);
-  //  require '../src/model.php';
-  //  $quotes = getQuotes();
 
     ob_start();             // start buffering HTML output
     require '../views/view.php';
@@ -16,41 +14,35 @@ $app->get('/test', function () use($app){
 
 
 // Home page
-$app->get('/', function () use ($app) {
-    $quotes = $app['dao.quote']->get5quotes();
-    $quote_total = $app['dao.quote']->count();
-    $author_total = $app['dao.author']->count();
+$app->get('/', "QuoteDico\Controller\QuoteController::indexAction")
+    ->bind('home');
 
-    /* We no longer need this, may be after?
-    $checkID = !$app['dao.quote']->exists($dayQ);
+// List of quotes
+$app->get('/quotes', "QuoteDico\Controller\QuoteController::getQuotesAction")
+    ->bind('quotes');
 
-    while ($checkID) {
-      //$ID = $app['dao.quote']->find($dayQ);
-      $app['dao.quote']->getId();
-    }
-  else {
-      $dayQ = $app['dao.quote']->test();
-    }
-    $ID = $app['dao.quote']->find($dayQ);*/
+// Details on one quote
+$app->get('/quote/{id}', "QuoteDico\Controller\QuoteController::viewQuoteAction")
+    ->bind('quote');
 
-    return $app['twig']->render('index.html.twig', array(
-      'quotes'      => $quotes,
-      'quote_total' => $quote_total,
-      'author_total'    => $author_total
-    ));
-})->bind('home');
+// Get list of quotes of a given category
+$app->get('/quote/category/{id}', "QuoteDico\Controller\QuoteController::
+viewCategoryAction")->bind('category');
 
-$app->get('/quotes', function () use ($app) {
-    $quotes = $app['dao.quote']->findAllQuotes();
-    return $app['twig']->render('quote.html.twig', array(
-      'quotes' => $quotes
-    ));
-})->bind('quotes');
+// Get list of quotes of a given author
+$app->match('/author/{id}', "QuoteDico\Controller\QuoteController::
+viewAuthorAction")->bind('author');
+
+// List of contributors
+$app->get('/contributors', "QuoteDico\Controller\QuoteController::
+getContributorsAction")->bind('contributors');
 
 // details on a quote
 $app->get('/quote/{id}', function () use ($app) {
 
 })->bind('quote');
+
+
 
 // Get list of quotes of a given category
 $app->get('/quote/category/{id}', function () use ($app) {
@@ -67,14 +59,3 @@ $app->get('/author/{id}', function ($id) use ($app) {
     ));
 
 });
-
-// List of contributors
-$app->get('/contributors', function () use ($app) {
-
-})->bind('contributors');
-
-// test view
-/*$app->get('/test', function() use($app) {
-  $quotes = $app['dao.quote']->findAllQuotes();
-  return $app->render('view.php', array('quotes' => $quotes));
-});*/
