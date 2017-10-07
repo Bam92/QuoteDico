@@ -2,7 +2,6 @@
 
 namespace QuoteDico\DAO;
 
-use Doctrine\DBAL\Connection;
 use QuoteDico\Domain\Quote;
 
 class QuoteDAO extends DAO
@@ -31,7 +30,12 @@ class QuoteDAO extends DAO
 
   public function findAllQuotes() {
 
-      $sql = "select * from t_quote order by q_description asc";
+      $sql = "select * 
+              from t_quote 
+              inner join t_quote_category
+               on t_quote.q_id = t_quote_category.q_id 
+              inner join t_category 
+               on t_category.cat_id = t_quote_category.cat_id";
       $result = $this->getDb()->fetchAll($sql);
 
       // Convert query result to an array of domain objects

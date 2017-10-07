@@ -16,8 +16,7 @@
     <blockquote>{{ quote.summary }}<br>
         <small>
           <a class="" href="/author/{{ quote.author.id }}">
-          {{ quote.author.fName }} {{ quote.author.mName }}
-          {{ quote.author.lName }}
+            {{ quote.author.fullName }}
           </a>
         </small>
         <p>Ajouté le {{ quote.date | date('d/m/Y') }} dans la categorie
@@ -27,4 +26,10 @@
 </article>
 
 {% endfor %}
+{% endblock %}
+
+{% block tags %}
+  {% for category in categories %}
+    {{ category.name }}
+  {% endfor %}
 {% endblock %}

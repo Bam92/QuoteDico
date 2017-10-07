@@ -1,19 +1,20 @@
 insert into t_author values
-	('', 'Nicolas', 'Boileau', '', '' ),
-	('', 'Linus', 'B.', 'Torvalds', '' ),
-	('', '', 'Virgile', '', '' ),
-	('', 'Léonard', 'de', 'Vinci', '' ),
-	('', 'Steve', '', 'Jobs', '' ),
-	('', 'James', '', 'Russell', '' ),
-	('', 'Henry', 'David', 'Thoreau', '' ),
-	('', 'David', '', 'Barder', '' ),
-	('', '', '', 'Buddha', '' ),
-	('', '', '', 'Ovide', '' ),
-	('', 'Robert', 'E.G', 'Beens', '' ),
-	('', 'Edward', 'Snowden', '', '' ),
-	('', 'Albert', 'Einstein', '', '' )
+	('', 'Nicolas Boileau'),
+	('', 'Linus B. Torvalds'),
+	('', 'Virgile'),
+	('', 'Léonard de Vinci'),
+	('', 'Steve Jobs'),
+	('', 'James Russell'),
+	('', 'Henry David Thoreau'),
+	('', 'David Barder'),
+	('', 'Buddha'),
+	('', 'Ovide'),
+	('', 'Robert E.G Beens'),
+	('', 'Edward Snowden'),
+	('', 'Albert Einstein')
 
 	;
+    
 insert into t_quote values
 	('', 'Ce qui se conçoit bien s’énonce clairement et les mots pour le dire
 		arrivent aisément', now() - interval 5 day, 1),
@@ -67,6 +68,7 @@ insert into t_quote values
 
 	insert into t_quote_category values
 		(1, 1),
+        (1, 3),
 		(2, 1),
 		(3, 2),
 		(4, 3),

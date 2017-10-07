@@ -15,32 +15,12 @@ class Author
   private $id;
 
   /**
-  * Author first name
+  * Author full name
   *
   * @var string
   */
-  private $fName;
+  private $fullName;
 
-  /**
-  * Author middle name
-  *
-  * @var string
-  */
-  private $mName;
-
-  /**
-  * Author last name
-  *
-  * @var string
-  */
-  private $lName;
-
-  /**
-  * where to find more about author (URL, e-mail, ...)
-  *
-  * @var string
-  */
-  private $link;
 
 // setters and getters
   public function id ()
@@ -48,53 +28,23 @@ class Author
 			return $this->id;
 		}
 
-		public function setId ($id)
-		{
-			$id = (int) $id;
+public function setId ($id)
+{
+    $id = (int) $id;
 
-			if ($id > 0)
-			{
-				$this->id = $id;
-			}
-		}
+    if ($id > 0)
+    {
+        $this->id = $id;
+    }
+}
 
-		public function fName ()
-		{
-			return $this->fName;
-		}
+public function fullName ()
+{
+    return $this->fullName;
+}
 
-		public function setFName ($fName)
-		{
-			$this->fName = $fName;
-		}
-
-    public function mName ()
-		{
-			return $this->mName;
-		}
-
-		public function setMName ($mName)
-		{
-			$this->lName = $mName;
-		}
-
-    public function lName ()
-		{
-			return $this->lName;
-		}
-
-		public function setLName ($lName)
-		{
-			$this->lName = $lName;
-		}
-
-    public function link ()
-		{
-			return $this->link;
-		}
-
-		public function setLink ($link)
-		{
-			$this->link = $link;
-		}
+public function setFullName ($fullName)
+{
+    $this->fullName = $fullName;
+}
 }

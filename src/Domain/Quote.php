@@ -35,13 +35,6 @@ class Quote
   */
   private $date;
 
-  /**
-  * Quote theme
-  *
-  * @var string
-  */
-  private $theme;
-
   public function id ()
 		{
 			return $this->id;
@@ -86,15 +79,4 @@ class Quote
 		{
 			$this->date = $date;
 		}
-
-    public function theme ()
-		{
-			return $this->theme;
-		}
-
-		public function setTheme ($theme)
-		{
-			$this->theme = $theme;
-		}
-
 }

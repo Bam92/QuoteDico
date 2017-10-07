@@ -28,7 +28,7 @@ echo "</pre>";
 
 echo "Voici la derniere ID :";
 echo "<pre>";
-print_r($ID);
+print_r($quotes);
 echo "</pre>";
 ?>
 

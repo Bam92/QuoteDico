@@ -2,7 +2,6 @@
 
 namespace QuoteDico\DAO;
 
-use Doctrine\DBAL\Connection;
 use QuoteDico\Domain\Author;
 
 class AuthorDAO extends DAO
@@ -22,7 +21,7 @@ class AuthorDAO extends DAO
      */
      public function findAllAuthors() {
 
-         $sql = "select * from t_author order by a_lName asc";
+         $sql    = "select * from t_author order by a_fullName asc";
          $result = $this->getDb()->fetchAll($sql);
 
          // Convert query result to an array of domain objects
@@ -61,12 +60,9 @@ class AuthorDAO extends DAO
      */
 
     protected function buildDomainObject(array $row) {
-        $author = new Author();
-        $author->setId($row['a_id']);
-        $author->setFName($row['a_fName']);
-        $author->setFName($row['a_mName']);
-        $author->setLName($row['a_lName']);
-        $author->setFName($row['a_link']);
+        $author =  new Author();
+        $author -> setId($row['a_id']);
+        $author -> setFullName($row['a_fullName']);
 
         return $author;
 

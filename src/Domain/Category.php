@@ -22,27 +22,27 @@ class Category
   private $name;
 
   public function id ()
-		{
-			return $this->id;
-		}
+    {
+        return $this->id;
+    }
 
-		public function setId ($id)
-		{
-			$id = (int) $id;
+    public function setId ($id)
+    {
+        $id = (int) $id;
 
-			if ($id > 0)
-			{
-				$this->id = $id;
-			}
-		}
+        if ($id > 0)
+        {
+            $this->id = $id;
+        }
+    }
 
-		public function name ()
-		{
-			return $this->name;
-		}
+    public function name ()
+    {
+        return $this->name;
+    }
 
-		public function setName ($name)
-		{
-			$this->name = $name;
-		}
+    public function setName ($name)
+    {
+        $this->name = $name;
+    }
 }

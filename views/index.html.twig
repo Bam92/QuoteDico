@@ -32,7 +32,7 @@
     <blockquote>{{ quote.summary }}<br>
         <small>
           <a class="" href="/author/{{ quote.author.id }}">
-          {{ quote.author.fName }} {{ quote.author.mName }} {{ quote.author.lName }}
+            {{ quote.author.fullName }}
           </a>
         </small>
         <!--p>Ajouté le {{ quote.date | date('d/m/Y') }} dans la categorie
@@ -42,4 +42,10 @@
     </p>
     {% endfor %}
 
+{% endblock %}
+
+{% block tags %}
+  {% for category in categories %}
+    <a href="#" title="Liste des citations de la categorie {{ category.name }}">{{ category.name }}</a>,
+  {% endfor %}
 {% endblock %}

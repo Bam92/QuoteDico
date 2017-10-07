@@ -13,21 +13,27 @@ class QuoteController //extends Controller
   * @param Application $app Silex application
   */
   public function indexAction(Application $app) {
-    $quotes       = $app['dao.quote'] ->get5quotes();
-    $quote_total  = $app['dao.quote'] ->count();
-    $author_total = $app['dao.author']->count();
+    $quotes       = $app['dao.quote']    -> get5quotes();
+    $quote_total  = $app['dao.quote']    -> count();
+    $author_total = $app['dao.author']   -> count();
+    $categories   = $app['dao.category'] -> findAllCategories();
 
     return $app['twig']->render('index.html.twig', array(
       'quotes'       => $quotes,
       'quote_total'  => $quote_total,
-      'author_total' => $author_total
+      'author_total' => $author_total,
+      'categories'   => $categories
     ));
   }
 
   public function getQuotesAction(Application $app) {
     $quotes = $app['dao.quote']->findAllQuotes();
+      $categories   = $app['dao.category']->findAllCategories();
 
-    return $app['twig']->render('quote.html.twig', array('quotes' => $quotes));
+    return $app['twig']->render('quote.html.twig', array(
+        'quotes' => $quotes,
+        'categories' => $categories
+    ));
   }
 
 /**

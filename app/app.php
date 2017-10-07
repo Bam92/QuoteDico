@@ -20,8 +20,14 @@ $app->register(new Silex\Provider\AssetServiceProvider(), array(
 $app['dao.author'] = function ($app) {
     return new QuoteDico\DAO\AuthorDAO($app['db']);
 };
+
 $app['dao.quote'] = function ($app) {
     $quoteDAO = new QuoteDico\DAO\QuoteDAO($app['db']);
     $quoteDAO->setAuthorDAO($app['dao.author']);
+    
     return $quoteDAO;
+};
+
+$app['dao.category'] = function ($app) {
+    return new QuoteDico\DAO\CategoryDAO($app['db']);
 };

@@ -2,9 +2,9 @@
 
 // test page
 $app->get('/test', function () use($app){
+  //$quotes = $app['dao.category']->findAllCategories();
+  /*$dayQ = $app['dao.quote']->test();*/
   $quotes = $app['dao.quote']->findAllQuotes();
-  $dayQ = $app['dao.quote']->test();
-  $ID = $app['dao.quote']->find($dayQ);
 
     ob_start();             // start buffering HTML output
     require '../views/view.php';
