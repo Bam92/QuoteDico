@@ -30,24 +30,19 @@ $app->get('/quote/category/{id}', "QuoteDico\Controller\QuoteController::
 viewCategoryAction")->bind('category');
 
 // Get list of quotes of a given author
-$app->match('/author/{id}', "QuoteDico\Controller\QuoteController::
-viewAuthorAction")->bind('author');
+$app->match('/author/{id}',
+    "QuoteDico\Controller\QuoteController::viewAuthorAction")->bind('author');
 
 // List of contributors
-$app->get('/contributors', "QuoteDico\Controller\QuoteController::
-getContributorsAction")->bind('contributors');
+$app->get('/contributors',
+    "QuoteDico\Controller\QuoteController::getContributorsAction")
+    ->bind('contributors');
 
 // details on a quote
 $app->get('/quote/{id}', function () use ($app) {
 
 })->bind('quote');
 
-
-
-// Get list of quotes of a given category
-$app->get('/quote/category/{id}', function () use ($app) {
-
-})->bind('category');
 
 // Get list of quotes of a given author
 $app->get('/author/{id}', function ($id) use ($app) {

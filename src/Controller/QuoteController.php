@@ -27,8 +27,8 @@ class QuoteController //extends Controller
   }
 
   public function getQuotesAction(Application $app) {
-    $quotes = $app['dao.quote']->findAllQuotes();
-      $categories   = $app['dao.category']->findAllCategories();
+    $quotes = $app['dao.quote']-> findAllQuotes();
+    $categories = $app['dao.category']-> findAllCategories();
 
     return $app['twig']->render('quote.html.twig', array(
         'quotes' => $quotes,
@@ -51,5 +51,27 @@ class QuoteController //extends Controller
       'author' => $author,
       'quotes' => $quotes
     ));
+  }
+
+  /**
+   * Category details controller.
+   *
+   * @param integer $id Category id
+   * @param Request $request Incoming request
+   * @param Application $app Silex application
+   */
+  public function viewCategoryAction($id, Request $request, Application $app) {
+    $author = $app['dao.category']->find($id);
+    $quotes = $app['dao.quote'] ->findByAuthor($id);
+
+    return $app['twig']->render('category.html.twig', array(
+      'author' => $author,
+      'quotes' => $quotes
+    ));
+  }
+
+  // return contributors
+  public function getContributorsAction(Application $app) {
+    return $app['twig']->render('credits.html.twig');
   }
 }

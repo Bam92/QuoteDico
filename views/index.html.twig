@@ -4,22 +4,29 @@
 
 {% block jumbotron %}
 <section class="jumbotron">
-  <div class="container">
 
-    <div class="col-md-8">
-      <p>Construisons ensemble le recueil de nos citations favorites</p>
-      <p>libre et collaboratif</p>
-    </div>
+  <div class="container">
+      <div class="col-md-8">
+          <p>Construisons ensemble le recueil de nos citations favorites</p>
+          <p>simples et memorables</p>
+      </div>
 
     <div class="col-md-4">
-      <h3>Formulaire ici</h3>
+        <h3>Formulaire ici</h3>
     </div>
 
-    <h2 id="numbers" class="col-md-12 text-center">
-    {{ quote_total }} <a href="/quotes" title="Liste des citations">citations</a>,
-    {{ author_total }} <a href="">auteurs</a>,
-    # <a href="/contributors">contibuteurs</a> et ca continue ...
-    </h2>
+    <div class="col-xs-12 text-center" id="statistic">
+        <h2>
+            {{ quote_total }}
+            <a href="/quotes" title="Liste des citations">citations</a>,
+            {{ author_total }} auteurs, et ca continue ...
+        </h2>
+        <p> <small> grace aux contributions de nombreux
+                <a href="/contributors">volontaires</a>
+                <!--pour qui nous sommes tres reconnaissant-->
+            </small>
+        </p>
+    </div>
   </div>
 </section>
 

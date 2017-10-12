@@ -22,9 +22,9 @@ $app['dao.author'] = function ($app) {
 };
 
 $app['dao.quote'] = function ($app) {
-    $quoteDAO = new QuoteDico\DAO\QuoteDAO($app['db']);
-    $quoteDAO->setAuthorDAO($app['dao.author']);
-    
+$quoteDAO = new QuoteDico\DAO\QuoteDAO($app['db']);
+$quoteDAO->setAuthorDAO($app['dao.author']);
+
     return $quoteDAO;
 };
 

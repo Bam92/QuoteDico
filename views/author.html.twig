@@ -10,10 +10,7 @@
 {% block content %}
 
 <article>
-<h2>
-Liste des citations de
-{{ author.fName }} {{ author.mName }} {{ author.lName }}
-</h2>
+    <h2> Liste des citations de {{ author.fullName }} </h2>
 
 {% for quote in quotes %}
     <p><blockquote>
