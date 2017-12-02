@@ -14,45 +14,45 @@ insert into t_author values
 	('', 'Albert Einstein')
 
 	;
-    
+
 insert into t_quote values
 	('', 'Ce qui se conçoit bien s’énonce clairement et les mots pour le dire
-		arrivent aisément', now() - interval 5 day, 1),
+		arrivent aisément', 1),
 
-	('', 'Keep quiet, show me the code', now() - interval 4 day, 2),
+	('', 'Keep quiet, show me the code', 2),
 
   ('', 'L\'ordinateur est pour moi l\'outil le plus remarquable que nous ayons
-		créé, c\'est l\'équivalent d\'un vélo pour l\'esprit', now(), 5),
+		créé, c\'est l\'équivalent d\'un vélo pour l\'esprit', 5),
 
 	('', 'Keep quiet, show me the code -attention, un essai a changer
-		avant deploiement', now() - 4, 2),
+		avant deploiement', 2),
 
-	('', 'Je crains les Grecs. Même lorsqu’ils offrent des présents.', now() - 4, 3),
+	('', 'Je crains les Grecs. Même lorsqu’ils offrent des présents.', 3),
 
-	('', 'La simplicité est la sophistication suprême', now() - 2, 4),
+	('', 'La simplicité est la sophistication suprême', 4),
 
-	('', 'La puissance ne vaut que par sa maîtrise', now() - 1, 6),
+	('', 'La puissance ne vaut que par sa maîtrise',  6),
 
-	('', 'Les détails nous empoisonnent la vie; simplifiez, simplifiez',
-		now() - 1, 7),
+	('', 'Les détails nous empoisonnent la vie; simplifiez, simplifiez', 7),
 
 	('', 'Soyez ici maintenant. Vous serez ailleurs plus tard. Est-ce si
-		compliqué ?', now() - 1, 8),
+		compliqué ?', 8),
 
-	('', 'Ce que nous pensons, nous le devenons', now() + 1, 9),
+	('', 'Ce que nous pensons, nous le devenons', 9),
 
 	('', 'Adde parvum parvo magnus acervus erit
-		(Ajoute peu à peu et tu auras beaucoup)', now(), 10),
+		(Ajoute peu à peu et tu auras beaucoup)', 10),
 
-	('', 'Privacy is a basic human right', now() + 1, 11),
+	('', 'Privacy is a basic human right', 11),
 
 	('', 'Be carrefull about what you share with large service providers ...
 		There are alternative like StartPage... that don\'t store that information',
-		now() + 3, 12),
+		12),
 
-	('', 'La créativité, c’est l’intelligence qui s’amuse', now() + 1, 13)
+	('', 'Ma seule motivation est d\'informer le public sur ce qui est fait en
+			leur nom et ce qui est fait contre eux.', 12),
 
-
+	('', 'La créativité, c’est l’intelligence qui s’amuse', 13)
 	;
 
 	insert into t_category values
@@ -68,7 +68,7 @@ insert into t_quote values
 
 	insert into t_quote_category values
 		(1, 1),
-        (1, 3),
+    (1, 3),
 		(2, 1),
 		(3, 2),
 		(4, 3),

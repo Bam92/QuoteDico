@@ -30,11 +30,11 @@ class QuoteDAO extends DAO
 
   public function findAllQuotes() {
 
-      $sql = "select * 
-              from t_quote 
+      $sql = "select *
+              from t_quote
               inner join t_quote_category
-               on t_quote.q_id = t_quote_category.q_id 
-              inner join t_category 
+               on t_quote.q_id = t_quote_category.q_id
+              inner join t_category
                on t_category.cat_id = t_quote_category.cat_id";
       $result = $this->getDb()->fetchAll($sql);
 
@@ -50,7 +50,7 @@ class QuoteDAO extends DAO
 
     // select last 5 added quotes
   public function get5quotes() {
-    $sql = "select * from t_quote order by q_date desc limit 0, 5";
+    $sql = "select * from t_quote order by q_id desc limit 0, 5";
     $result = $this->getDb()->fetchAll( $sql );
 
     // Convert query result to an array of domain objects
@@ -134,7 +134,7 @@ class QuoteDAO extends DAO
 
       // $author_id is not selected by the SQL query
       // The $author won't be retrieved during domain objet construction
-      $sql = "select * from t_quote where a_id=? order by time(q_date) asc";
+      $sql = "select * from t_quote where a_id=? order by time(q_id) asc";
       $result = $this->getDb()->fetchAll($sql, array($author_id));
 
       // Convert query result to an array of domain objects
@@ -161,7 +161,7 @@ class QuoteDAO extends DAO
       $quote = new Quote();
       $quote->setId($row['q_id']);
       $quote->setSummary($row['q_description']);
-      $quote->setDate($row['q_date']);
+      //$quote->setDate($row['q_date']);
     //  $quote->setTheme($row['q_theme']);
 
     if (array_key_exists('a_id', $row)) {
