@@ -40,44 +40,38 @@
         {% block jumbotron %}{% endblock %}
 
         <div class="container">
-        <section class="col-md-8 col-xs-12">{% block content %}{% endblock %}
+        <section class="col-xs-10">{% block content %}{% endblock %}
           {# page main content here #}
         </section>
 
           <!-- right panel -->
-          <section class="col-md-4 clearfix-xs">
-            <div class="box-right-panel about">
+          <section class="col-md-2">
+            <!--div class="box-right-panel about">
               <h3 class="site-title">A propos </h3>
               QuoteDico est un receuil de citations libre que chacun peut
               ameliorer
-            </div>
-
-            <div class="box-right-panel contribute">
-               <h3 class="site-title">Comment contribuer ? </h3>
-            bfdklfkl
-            </div>
+            </div-->
 
             <div class=" box-right-panel popular">
-              <h3 class="site-title">Top 10 de citations populaires</h3>
-                <ul>
-                  <li>tTest</li>
-                  <li>tTest</li>
-                  <li>tTest</li>
-                  <li>tTest</li>
-                </ul>
-            </div>
+              <h3 class="site-title">Top 10 de mots-clés populaires</h3>
 
-            <div class="box-right-panel keywords">
-            <h3 class="site-title">Mots-cles </h3>
             {% block tags %}{% endblock %}
             </div>
 
-          </section>
+          </section
+        </div>
 
         <hr>
+        <div class="container">
         <footer class="footer col-xs-12">
-            <a href="/">QuoteDico</a> is a quote dictionnary app built modern
-            PHP development.
+          <p>Unless specified otherwise, the content on this website is available
+          under the terms of the
+          <a href="//creativecommons.org/licenses/by-sa/3.0/">
+            Creative Commons BY-SA 3.0 license</a>.
+          </p>
+          <p>Proudly powered by free software: <a href="//php.net/">PHP</a>,
+            <a href="//getbootstrap.com/">Bootstrap</a>, <a href="//#/">Silex</a>
+          </p>
         </footer>
     </div>
 
