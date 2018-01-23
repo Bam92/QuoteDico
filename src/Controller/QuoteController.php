@@ -46,10 +46,12 @@ class QuoteController //extends Controller
   public function viewAuthorAction($id, Request $request, Application $app) {
     $author = $app['dao.author']->find($id);
     $quotes = $app['dao.quote'] ->findByAuthor($id);
+    $total_quotes = $app['dao.quote'] ->countByAuthor($id);
 
     return $app['twig']->render('author.html.twig', array(
       'author' => $author,
-      'quotes' => $quotes
+      'quotes' => $quotes,
+      'total_quotes' => $total_quotes
     ));
   }
 

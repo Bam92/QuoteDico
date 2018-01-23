@@ -10,7 +10,11 @@
 {% block content %}
 
 <article>
-    <h2> Liste des citations de {{ author.fullName }} </h2>
+    <h2> Liste des citations de {{ author.fullName }}</h2>
+
+    <div id="quote_total" class="text-center">
+      Déjà {{ total_quotes }} citations pour {{ author.fullName }}; et ça continue...
+    </div>
 
 {% for quote in quotes %}
     <p><blockquote>

@@ -24,6 +24,18 @@ class QuoteDAO extends DAO
   }
 
   /**
+  * Return the total of quotes by author
+  * @return integer total of quotes in the db
+  */
+  public function countByAuthor($author_id) {
+
+    $sql = $this->getDb()->prepare('SELECT COUNT(*) FROM t_quote WHERE a_id = ?');
+    $sql->execute(array($author_id));
+
+    return $sql->fetchColumn();
+  }
+
+  /**
    * Return a list of all quotes
    * @return array A list of all quotes.
    */
@@ -66,8 +78,7 @@ class QuoteDAO extends DAO
 
 
   /**
-   * Returns a quote matching the supplied id.
-   *
+   * Returns a quote matching the supplied id.   *
    * @param integer $id The quote id.
    *
    * @return \Quote\Domain\Quote|throws an exception if no matching quote is found
@@ -85,9 +96,9 @@ class QuoteDAO extends DAO
        }
  }
 
-  // Find quotes by  author
+  // Find quotes by author
   public function findByAuthor($author_id) {
-    // get author id
+    // get author author
     $author = $this->authorDAO->find($author_id);
 
       // $author_id is not selected by the SQL query
