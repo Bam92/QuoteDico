@@ -28,6 +28,13 @@ class Quote
   */
   private $author;
 
+  /**
+  * Quote category id
+  *
+  * @var integer
+  */
+  private $category;
+
   public function id ()
 		{
 			return $this->id;
@@ -61,6 +68,16 @@ class Quote
 		public function setAuthor (Author $author)
 		{
 			$this->author = $author;
+		}
+
+    public function category ()
+		{
+			return $this->category;
+		}
+
+		public function setCategory (Category $category)
+		{
+			$this->category = $category;
 		}
 
 }

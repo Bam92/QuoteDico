@@ -16,7 +16,7 @@ class QuoteDAO extends DAO
   }
 
   /**
-  * Return amount of quotes
+  * Return the total of quotes
   * @return integer total of quotes in the db
   */
   public function count() {
@@ -24,18 +24,19 @@ class QuoteDAO extends DAO
   }
 
   /**
-     * Return a list of all quotes
-     * @return array A list of all quotes.
-     */
+   * Return a list of all quotes
+   * @return array A list of all quotes.
+   */
 
   public function findAllQuotes() {
 
-      $sql = "select *
+      /*$sql = "select *
               from t_quote
               inner join t_quote_category
                on t_quote.q_id = t_quote_category.q_id
               inner join t_category
-               on t_category.cat_id = t_quote_category.cat_id";
+               on t_category.cat_id = t_quote_category.cat_id";*/
+      $sql = "SELECT * FROM t_quote";
       $result = $this->getDb()->fetchAll($sql);
 
       // Convert query result to an array of domain objects
@@ -50,7 +51,7 @@ class QuoteDAO extends DAO
 
     // select last 5 added quotes
   public function get5quotes() {
-    $sql = "select * from t_quote order by q_id desc limit 0, 5";
+    $sql = "select * from t_quote limit 0, 5";
     $result = $this->getDb()->fetchAll( $sql );
 
     // Convert query result to an array of domain objects
@@ -63,52 +64,9 @@ class QuoteDAO extends DAO
     return $quotes;
   }
 
-  /**
-  * Generate a random id  for Quote of the day
-  * @return the id
-  */
-  public function getId() {
-    // citation n 1
-    $sql = "select q_id from t_quote order by q_id asc limit 1";
-    $result = $this->getDb()->fetchAll( $sql );
-
-    foreach ($result as $row) {
-        $quoteId = $row['q_id'];
-        //$quotes[$quoteId] = $this->buildDomainObject($row);
-    }
-
-    // citation n 2
-    $sql = "select q_id from t_quote order by q_id desc limit 1";
-    $result = $this->getDb()->fetchAll($sql);
-
-    foreach ($result as $row) {
-        $quoteId2 = $row['q_id'];
-    }
-
-    // generer chiffre entre citation n 1 et citation n 2
-    $quoteId = mt_rand($quoteId, $quoteId2); // mt_rand is 4 times rapid than
-    // rand()
-
-    //$q_ID = mt_rand($quoteId, $quoteId2);
-
-    return $quoteId;
-  }
-
-  // check if the db row exists
-  public function exists($quote_id) {
-
-    return (bool) $this->getDb()->query('SELECT COUNT(*) FROM t_quote
-           WHERE q_id = ' .$quote_id)->fetchColumn();
-
-  /*$sql = "select * from t_quote where a_id = ?";
-  $row = $this->getDb()->fetchAssoc($sql, array($quote_id));
-
-    //f ($row)
-        return true;*/
-  }
 
   /**
-   * Returns an author matching the supplied id.
+   * Returns a quote matching the supplied id.
    *
    * @param integer $id The quote id.
    *
@@ -150,13 +108,34 @@ class QuoteDAO extends DAO
 
   }
 
+  // Find quotes by  category
+  public function findByCategory($category_id) {
+    // get author id
+    $category = $this->categoryDAO->find($category_id);
+
+      // $author_id is not selected by the SQL query
+      // The $author won't be retrieved during domain objet construction
+      $sql = "select * from t_quote where a_id=? order by time(q_id) asc";
+      $result = $this->getDb()->fetchAll($sql, array($author_id));
+
+      // Convert query result to an array of domain objects
+      $auth_quotes = array();
+      foreach ($result as $row) {
+          $quoteId = $row['q_id'];
+          $quote = $this->buildDomainObject($row);
+          // The associated author is defined for the constructed comment
+          $quote->setAuthor($author);
+          $auth_quotes[$quoteId] = $quote;
+      }
+      return $auth_quotes;
+
+  }
+
   /**
-   * Creates a Quote object based on a DB row.
-   *
+   * Creates a Quote object based on a DB row.   *
    * @param array $row The DB row containing Quote data.
    * @return \QuoteDico\Domain\Quote
    */
-
   protected function buildDomainObject(array $row) {
       $quote = new Quote();
       $quote->setId($row['q_id']);

@@ -7,9 +7,8 @@
   <div class="container">
       <div class="col-xs-12 text-center">
           <h1>
-            Ensemble, ... construisons le recueil de nos citations favorites
+            ... pour des citations inoubliables
           </h1>
-          <h3>simples et mémorables</h3>
       </div>
 
     <div class="col-xs-12 text-center" id="call-to-action-home">
@@ -22,28 +21,32 @@
         <p> <small> grace aux contributions de nombreux
                 <a href="/contributors">volontaires</a>
                 <!--pour qui nous sommes tres reconnaissant-->
-            </small>
+           <!-- </small>
         </p-->
 
     </div>
   </div>
 </section>
 
+<div id="quote_total" class="text-center">
+  Déjà {{ quote_total }} citations de {{ author_total }}
+  <a href="/#" title="Afficher tous les auteurs">auteurs</a>
+  différents; et ça continue...
+</div>
+
 {% endblock %}
 
 {% block content %}
-
    {% for quote in quotes %}
-    <p>
+
     <blockquote>{{ quote.summary }}<br>
         <small>
           <a class="" href="/author/{{ quote.author.id }}">
             {{ quote.author.fullName }}
           </a>
         </small>
+    </blockquote>
 
-      </blockquote>
-    </p>
     {% endfor %}
 
 {% endblock %}

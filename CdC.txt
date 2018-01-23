@@ -1,0 +1,4 @@
+﻿Contraintes :
+- pas plus de 150 caractères avec espace compris
+- pas plus de 3 categories par citations
+- afficher description de l'auteur, s'il y en a un, au survole de son lien. Description a proposer dans un premier temps puis à tirer sur Wikipedia par la suite si possible

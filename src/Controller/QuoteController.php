@@ -13,7 +13,7 @@ class QuoteController //extends Controller
   * @param Application $app Silex application
   */
   public function indexAction(Application $app) {
-    $quotes       = $app['dao.quote']    -> get5quotes();
+    $quotes       = $app['dao.quote']    -> findAllQuotes();
     $quote_total  = $app['dao.quote']    -> count();
     $author_total = $app['dao.author']   -> count();
     $categories   = $app['dao.category'] -> findAllCategories();

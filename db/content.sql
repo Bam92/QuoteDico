@@ -13,7 +13,9 @@ insert into t_author values
 	('', 'Edward Snowden'),
 	('', 'Albert Einstein'),
 	('', 'Richard Stallman'),
-	('', 'Jimmy Wales')
+	('', 'Jimmy Wales'),
+	('', 'G. Lacroix'),
+	('', 'Jean Eisenstaedt')
 	;
 
 insert into t_quote values
@@ -47,6 +49,8 @@ insert into t_quote values
 
 	('', 'La créativité, c’est l’intelligence qui s’amuse', 13),
 
+	('', 'Faites simple, mais pas plus simple !', 13),
+
 	('', 'Tout le monde est un génie. Mais si vous jugez un poisson sur ses
 		capacités à grimper à un arbre, il passera sa vie à croire qu\'il est
 		stupide.', 13),
@@ -75,7 +79,12 @@ insert into t_quote values
 	('', 'Wikipédia est (…) à la fois un service public et un bien commun.', 15),
 
 	('', 'Les livres sous licence libre sont la prochaine grosse révolution dans
-		l\'éducation.', 15)
+		l\'éducation.', 15),
+
+	('', 'E=mc², mais si on discute un peu, on peut l’avoir pour beaucoup moins
+		cher...', 16),
+
+	('', ' La relativité n\'existerait donc que relativement aux relativistes', 17)
 	;
 
 	insert into t_category values
