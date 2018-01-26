@@ -1,6 +1,6 @@
 {% extends "layout.html.twig" %}
 
-{% block title %} QuoteDico - Home {% endblock %}
+{% block title %} Home {% endblock %}
 
 {% block jumbotron %}
 <section class="jumbotron">
@@ -29,9 +29,8 @@
 </section>
 
 <div id="quote_total" class="text-center">
-  Déjà {{ quote_total }} citations de {{ author_total }}
+  QuoteDico compte {{ quote_total }} citations de {{ author_total }}
   <a href="/#" title="Afficher tous les auteurs">auteurs</a>
-  différents; et ça continue...
 </div>
 
 {% endblock %}
@@ -52,8 +51,4 @@
 {% endblock %}
 
 {% block tags %}
-  {% for category in categories %}
-    <a href="#" title="Liste des citations de la categorie {{ category.name }}">
-    {{ category.name }}</a>,
-  {% endfor %}
 {% endblock %}

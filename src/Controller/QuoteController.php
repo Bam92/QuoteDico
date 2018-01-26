@@ -16,13 +16,13 @@ class QuoteController //extends Controller
     $quotes       = $app['dao.quote']    -> findAllQuotes();
     $quote_total  = $app['dao.quote']    -> count();
     $author_total = $app['dao.author']   -> count();
-    $categories   = $app['dao.category'] -> findAllCategories();
+    //$categories   = $app['dao.category'] -> findAllCategories();
 
     return $app['twig']->render('index.html.twig', array(
       'quotes'       => $quotes,
       'quote_total'  => $quote_total,
-      'author_total' => $author_total,
-      'categories'   => $categories
+      'author_total' => $author_total
+    //  'categories'   => $categories
     ));
   }
 
@@ -47,11 +47,13 @@ class QuoteController //extends Controller
     $author = $app['dao.author']->find($id);
     $quotes = $app['dao.quote'] ->findByAuthor($id);
     $total_quotes = $app['dao.quote'] ->countByAuthor($id);
+    $quote_total  = $app['dao.quote']    -> count();
 
     return $app['twig']->render('author.html.twig', array(
       'author' => $author,
       'quotes' => $quotes,
-      'total_quotes' => $total_quotes
+      'total_quotes' => $total_quotes,
+      'quote_total' => $quote_total
     ));
   }
 

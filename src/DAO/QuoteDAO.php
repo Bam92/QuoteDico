@@ -120,7 +120,7 @@ class QuoteDAO extends DAO
   }
 
   // Find quotes by  category
-  public function findByCategory($category_id) {
+  /*public function findByCategory($category_id) {
     // get author id
     $category = $this->categoryDAO->find($category_id);
 
@@ -140,7 +140,7 @@ class QuoteDAO extends DAO
       }
       return $auth_quotes;
 
-  }
+  }*/
 
   /**
    * Creates a Quote object based on a DB row.   *

@@ -1,6 +1,6 @@
 {% extends "layout.html.twig" %}
 
-{% block title %}QuoteDico - Home{% endblock %}
+{% block title %} Author {{ author.fullName }} {% endblock %}
 
 {% block hea %}
   <p>QuoteDico
@@ -13,7 +13,8 @@
     <h2> Liste des citations de {{ author.fullName }}</h2>
 
     <div id="quote_total" class="text-center">
-      Déjà {{ total_quotes }} citations pour {{ author.fullName }}; et ça continue...
+      {{ total_quotes }} citation(s) pour {{ author.fullName }} sur un total de {{ quote_total }}
+      <a href="/">citations</a>
     </div>
 
 {% for quote in quotes %}
