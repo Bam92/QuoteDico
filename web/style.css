@@ -1,0 +1,14 @@
+small {
+	/*float: right;*/
+}
+
+footer {
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+    text-align: center;
+}
+
+.navbar {
+	margin-bottom: 100px;
+	/*border: 2px solid red;*/
+}

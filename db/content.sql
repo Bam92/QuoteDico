@@ -61,17 +61,17 @@ insert into t_quote values
 	('', 'Tout ce qui est vraiment grand et inspiré n’a été réalisé que par des
 		individus travaillant librement.', 11),
 
-	('', 'La vie, c’est comme une bicyclette, il faut avancer pour ne pas perdre
-		l’équilibre.', 11),
+	('', 'La vie, c\'est comme une bicyclette, il faut avancer pour ne pas perdre
+		l\'équilibre.', 11),
 
-	('', 'Nous qualifier d’« open source », c’est comme qualifier Kucinich de
+	('', 'Nous qualifier d\'« open source », c\'est comme qualifier Kucinich de
 		républicain.', 12),
 
 	('', 'Je peux expliquer le logiciel libre en 3 mots : Liberté, Égalité,
 		Fraternité.', 12),
 
-	('', 'L\'argent, c\'est du temps ; sauf si vous n’avez pas l’un ou
-		l’autre.', 12),
+	('', 'L\'argent, c\'est du temps ; sauf si vous n\'avez pas l\'un ou
+		l\'autre.', 12),
 
 	('', 'Nous voulons libérer le savoir. Nous sommes une force politique, nous
 		sommes de la dynamite !', 13),
@@ -81,10 +81,10 @@ insert into t_quote values
 	('', 'Les livres sous licence libre sont la prochaine grosse révolution dans
 		l\'éducation.', 13),
 
-	('', 'E=mc², mais si on discute un peu, on peut l’avoir pour beaucoup moins
+	('', 'E=mc², mais si on discute un peu, on peut l\'avoir pour beaucoup moins
 		cher...', 14),
 
-	('', ' La relativité n\'existerait donc que relativement aux relativistes', 15)
+	('', 'La relativité n\'existerait donc que relativement aux relativistes', 15)
 	;
 
 	insert into t_tag values
